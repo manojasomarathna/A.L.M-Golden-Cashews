@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buy Retail Packed Cashews - A.L.M. Golden Cashews</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C8922A;
+    --gold-light: #E8B84B;
+    --dark: #1A1208;
+    --dark2: #2D2010;
+    --cream: #FAF3E8;
+    --text: #3D2B10;
+    --text-light: #7A6040;
+    --green: #3B5E2B;
+    --white: #FFFEF9;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); }
+
+  nav {
+    background: rgba(26,18,8,0.97);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 65px;
+    border-bottom: 1px solid rgba(200,146,42,0.3);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold-light);
+    font-size: 1.2rem; font-weight: 700;
+    text-decoration: none;
+  }
+  .nav-logo span { display: block; font-size: 0.6rem; color: var(--gold); letter-spacing: 3px; font-family: 'DM Sans', sans-serif; text-transform: uppercase; }
+  .nav-back {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.88rem;
+    display: flex; align-items: center; gap: 0.4rem;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    background: var(--dark);
+    padding: 5rem 5% 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(200,146,42,0.12) 0%, transparent 70%);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(200,146,42,0.15);
+    border: 1px solid rgba(200,146,42,0.4);
+    color: var(--gold-light);
+    padding: 0.35rem 1rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .hero h1 span { color: var(--gold-light); }
+  .hero p {
+    color: rgba(255,255,255,0.6);
+    font-size: 1.05rem;
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+    position: relative;
+  }
+  .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--dark);
+    padding: 0.9rem 2rem;
+    border-radius: 6px;
+    font-weight: 700; font-size: 1rem;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: all 0.25s;
+  }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(200,146,42,0.35); }
+  .btn-wa {
+    background: #25D366;
+    color: white;
+    padding: 0.9rem 2rem;
+    border-radius: 6px;
+    font-weight: 700; font-size: 1rem;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: all 0.25s;
+  }
+  .btn-wa:hover { background: #20BC59; transform: translateY(-2px); }
+
+  /* PACKS */
+  .section { padding: 5rem 5%; }
+  .section-label {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: var(--dark);
+    margin-bottom: 0.75rem;
+  }
+  .section p.sub { color: var(--text-light); font-size: 1rem; line-height: 1.7; max-width: 520px; margin-bottom: 3rem; }
+
+  .packs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  .pack-card {
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid rgba(200,146,42,0.15);
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .pack-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(200,146,42,0.15); }
+  .pack-top {
+    background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+    height: 140px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 4rem;
+    position: relative;
+  }
+  .pack-size {
+    position: absolute; bottom: 10px; right: 12px;
+    background: var(--dark);
+    color: var(--gold-light);
+    font-size: 0.7rem; font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: 10px;
+    letter-spacing: 1px;
+  }
+  .pack-body { padding: 1.25rem 1.5rem 1.5rem; }
+  .pack-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--dark); margin-bottom: 0.3rem; }
+  .pack-desc { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; margin-bottom: 1.25rem; }
+  .pack-price { display: flex; justify-content: space-between; align-items: center; }
+  .pack-price .price { font-weight: 700; font-size: 1rem; color: var(--dark); }
+  .pack-price .price span { font-size: 0.75rem; font-weight: 400; color: var(--text-light); }
+  .call-btn {
+    background: var(--gold);
+    color: var(--dark);
+    padding: 0.5rem 1.1rem;
+    border-radius: 6px;
+    font-size: 0.82rem; font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .call-btn:hover { background: var(--gold-light); }
+
+  /* WHY */
+  .why { background: var(--white); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .why-card {
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 1.75rem 1.5rem;
+    border: 1px solid rgba(200,146,42,0.1);
+    text-align: center;
+  }
+  .why-icon { font-size: 2.2rem; margin-bottom: 0.75rem; }
+  .why-card h4 { font-weight: 600; color: var(--dark); margin-bottom: 0.4rem; }
+  .why-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; }
+
+  /* ORDER FORM */
+  .order-section { background: var(--dark); color: white; }
+  .order-section .section-label { color: var(--gold-light); }
+  .order-section h2 { color: var(--white); }
+  .order-section p.sub { color: rgba(255,255,255,0.6); }
+  .order-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+  .form-box {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(200,146,42,0.2);
+    border-radius: 16px;
+    padding: 2.5rem;
+  }
+  .form-box h3 { font-family: 'Playfair Display', serif; color: var(--gold-light); font-size: 1.3rem; margin-bottom: 1.5rem; }
+  .fg { margin-bottom: 1.2rem; }
+  .fg label { display: block; font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 0.5px; margin-bottom: 0.45rem; text-transform: uppercase; }
+  .fg input, .fg select, .fg textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    color: white;
+    padding: 0.75rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--gold); }
+  .fg input::placeholder, .fg textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .fg select option { background: var(--dark2); }
+  .fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .submit-btn {
+    width: 100%; background: var(--gold); color: var(--dark);
+    border: none; padding: 1rem; border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700;
+    cursor: pointer; margin-top: 0.5rem; transition: all 0.25s;
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  }
+  .submit-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .contact-side { display: flex; flex-direction: column; gap: 1.25rem; }
+  .c-btn-call {
+    display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+    background: #1a73e8; color: white;
+    padding: 1rem 1.5rem; border-radius: 10px;
+    text-decoration: none; font-weight: 600; font-size: 1rem;
+    transition: all 0.25s;
+  }
+  .c-btn-call:hover { background: #1558b0; transform: translateY(-2px); }
+  .c-btn-wa {
+    display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+    background: #25D366; color: white;
+    padding: 1rem 1.5rem; border-radius: 10px;
+    text-decoration: none; font-weight: 600; font-size: 1rem;
+    transition: all 0.25s;
+  }
+  .c-btn-wa:hover { background: #20BC59; transform: translateY(-2px); }
+  .info-box {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .info-box .ico { font-size: 1.8rem; min-width: 2rem; }
+  .info-box h4 { color: var(--gold-light); font-weight: 600; margin-bottom: 0.3rem; font-size: 0.95rem; }
+  .info-box p { color: rgba(255,255,255,0.6); font-size: 0.85rem; line-height: 1.6; }
+
+  /* TOAST */
+  .toast {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 9999;
+    background: var(--green); color: white;
+    padding: 1rem 1.5rem; border-radius: 10px;
+    font-weight: 500; font-size: 0.9rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    display: flex; align-items: center; gap: 0.5rem;
+    transform: translateY(100px); opacity: 0;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 2rem 5%;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(200,146,42,0.15);
+  }
+  footer .fl { font-family: 'Playfair Display', serif; color: var(--gold-light); font-size: 1.2rem; margin-bottom: 0.4rem; }
+
+  @media (max-width: 900px) {
+    .order-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .section { padding: 3.5rem 5%; }
+    .fg-row { grid-template-columns: 1fr; }
+    .hero { padding: 4rem 5% 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="alm_golden_cashews.html">A.L.M. Golden Cashews <span>Premium Sri Lankan Cashews</span></a>
+  <a class="nav-back" href="alm_golden_cashews.html">← Back to Main Site</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">📦 Retail Packed Cashews</div>
+  <h1>Premium Cashews,<br><span>Ready to Sell</span></h1>
+  <p>Hygienically packed in 250g, 500g & 1kg retail bags. Perfect for shops, supermarkets, and bulk buyers. Farm fresh — direct from our plantation.</p>
+  <div class="hero-btns">
+    <a href="#order" class="btn-gold">📋 Place an Order</a>
+    <a href="tel:+94742770633" class="btn-gold" style="background:#1a73e8;color:white;">📞 Call Now</a>
+    <a href="https://wa.me/94742770633" target="_blank" class="btn-wa">💬 WhatsApp</a>
+  </div>
+</div>
+
+<!-- PACK SIZES -->
+<div class="section">
+  <span class="section-label">Our Packs</span>
+  <h2>Available Pack Sizes</h2>
+  <p class="sub">All packs are hygienically sealed, farm fresh, and ready for retail shelves. Bulk orders welcome.</p>
+  <div class="packs-grid">
+    <div class="pack-card">
+      <div class="pack-top">📦<span class="pack-size">250g</span></div>
+      <div class="pack-body">
+        <div class="pack-name">250g Retail Pack</div>
+        <div class="pack-desc">Perfect for individual customers. Ideal for small shops, gift packs, and trial orders.</div>
+        <div class="pack-price">
+          <span class="price">Call for Price <span>/ pack</span></span>
+          <a href="tel:+94742770633" class="call-btn">📞 Call</a>
+        </div>
+      </div>
+    </div>
+    <div class="pack-card">
+      <div class="pack-top">📦<span class="pack-size">500g</span></div>
+      <div class="pack-body">
+        <div class="pack-name">500g Retail Pack</div>
+        <div class="pack-desc">Best-selling size. Great for supermarkets and grocery stores. High demand product.</div>
+        <div class="pack-price">
+          <span class="price">Call for Price <span>/ pack</span></span>
+          <a href="tel:+94742770633" class="call-btn">📞 Call</a>
+        </div>
+      </div>
+    </div>
+    <div class="pack-card">
+      <div class="pack-top">📦<span class="pack-size">1kg</span></div>
+      <div class="pack-body">
+        <div class="pack-name">1kg Retail Pack</div>
+        <div class="pack-desc">Value pack for families and bulk buyers. Popular with wholesale customers and traders.</div>
+        <div class="pack-price">
+          <span class="price">Call for Price <span>/ pack</span></span>
+          <a href="tel:+94742770633" class="call-btn">📞 Call</a>
+        </div>
+      </div>
+    </div>
+    <div class="pack-card" style="background:var(--dark);border-color:rgba(200,146,42,0.3);">
+      <div class="pack-top" style="background:linear-gradient(135deg,#1a1208,#2d2010);">🏭<span class="pack-size">Bulk</span></div>
+      <div class="pack-body" style="background:var(--dark);">
+        <div class="pack-name" style="color:var(--gold-light);">Bulk / Wholesale</div>
+        <div class="pack-desc" style="color:rgba(255,255,255,0.5);">Large quantity orders for traders, distributors, and supermarket chains. Special pricing available.</div>
+        <div class="pack-price">
+          <span class="price" style="color:white;">Negotiable <span>/ bulk</span></span>
+          <a href="tel:+94742770633" class="call-btn">📞 Call</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY -->
+<div class="section why">
+  <span class="section-label">Why Choose Us</span>
+  <h2>Farm Direct Quality</h2>
+  <p class="sub">We grow, process, and pack every cashew ourselves — no middlemen, guaranteed freshness.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🌳</div>
+      <h4>Own Farm</h4>
+      <p>Cashews grown on our own plantation in Anamaduwa, Sri Lanka.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚙️</div>
+      <h4>Machine Cut</h4>
+      <p>Precision machine processing for consistent kernel quality.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🤲</div>
+      <h4>Hand Sorted</h4>
+      <p>Every batch hand-sorted — only premium kernels make it to packing.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📦</div>
+      <h4>Hygienic Packing</h4>
+      <p>Airtight sealed packs to lock in freshness for maximum shelf life.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🚚</div>
+      <h4>Island-wide Delivery</h4>
+      <p>We deliver across Sri Lanka. Fast dispatch for all orders.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💰</div>
+      <h4>Best Prices</h4>
+      <p>Direct from farm means no middleman markup — best prices guaranteed.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ORDER -->
+<div class="section order-section" id="order">
+  <span class="section-label">Order Now</span>
+  <h2>Place Your Order</h2>
+  <p class="sub">Fill the form or call/WhatsApp us directly. We'll confirm your order fast!</p>
+  <div class="order-grid">
+    <div class="form-box">
+      <h3>📋 Order Form</h3>
+      <div class="fg-row">
+        <div class="fg">
+          <label>Your Name</label>
+          <input type="text" id="fname" placeholder="Full name">
+        </div>
+        <div class="fg">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" id="fphone" placeholder="07X XXX XXXX">
+        </div>
+      </div>
+      <div class="fg">
+        <label>Pack Size</label>
+        <select id="fpack">
+          <option value="">-- Select pack size --</option>
+          <option>250g Retail Pack</option>
+          <option>500g Retail Pack</option>
+          <option>1kg Retail Pack</option>
+          <option>Bulk / Wholesale Order</option>
+          <option>Mixed (Multiple sizes)</option>
+        </select>
+      </div>
+      <div class="fg-row">
+        <div class="fg">
+          <label>Quantity</label>
+          <input type="text" id="fqty" placeholder="e.g. 50 packs, 10kg">
+        </div>
+        <div class="fg">
+          <label>Delivery Area</label>
+          <input type="text" id="farea" placeholder="City / Town">
+        </div>
+      </div>
+      <div class="fg">
+        <label>Notes</label>
+        <textarea id="fnotes" rows="3" placeholder="Any special requirements?"></textarea>
+      </div>
+      <button class="submit-btn" onclick="submitOrder()">📲 Send Order via WhatsApp</button>
+    </div>
+
+    <div class="contact-side">
+      <a href="tel:+94742770633" class="c-btn-call">📞 Call Now · 0742770633</a>
+      <a href="https://wa.me/94742770633" target="_blank" class="c-btn-wa">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.934 1.397 5.61L0 24l6.545-1.378A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.652-.51-5.17-1.4l-.37-.22-3.884.818.824-3.785-.241-.389A9.929 9.929 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        WhatsApp Us Directly
+      </a>
+      <div class="info-box">
+        <div class="ico">🚚</div>
+        <div>
+          <h4>Island-wide Delivery</h4>
+          <p>We deliver across Sri Lanka. Contact us for delivery charges to your area.</p>
+        </div>
+      </div>
+      <div class="info-box">
+        <div class="ico">⏱️</div>
+        <div>
+          <h4>Fast Processing</h4>
+          <p>Orders confirmed within a few hours. Bulk orders may need 1–2 days preparation.</p>
+        </div>
+      </div>
+      <div class="info-box">
+        <div class="ico">📍</div>
+        <div>
+          <h4>Location</h4>
+          <p>Diulwewa, Anamaduwa, North Western Province, Sri Lanka.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="fl">A.L.M. Golden Cashews</div>
+  <p>Premium Sri Lankan Cashews</p>
+  <p style="margin-top:0.4rem;font-size:0.78rem;">© 2025 A.L.M. Golden Cashews · All rights reserved</p>
+</footer>
+
+<div class="toast" id="toast">✅ Order sent via WhatsApp!</div>
+
+<script>
+  function submitOrder() {
+    const name = document.getElementById('fname').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    const pack = document.getElementById('fpack').value;
+    const qty = document.getElementById('fqty').value.trim();
+    const area = document.getElementById('farea').value.trim();
+    const notes = document.getElementById('fnotes').value.trim();
+
+    if (!name || !phone || !pack || !qty) {
+      alert('Please fill in Name, Phone, Pack Size, and Quantity!');
+      return;
+    }
+
+    const msg = `Hello A.L.M. Golden Cashews! 📦\n\n*Retail Pack Order Request*\n--------------------\n*Name:* ${name}\n*Phone:* ${phone}\n*Pack Size:* ${pack}\n*Quantity:* ${qty}\n*Delivery Area:* ${area || 'To be confirmed'}\n${notes ? `*Notes:* ${notes}` : ''}\n\nPlease confirm availability and pricing. Thank you!`;
+
+    window.open(`https://wa.me/94742770633?text=${encodeURIComponent(msg)}`, '_blank');
+
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+  }
+</script>
+
+</body>
+</html>
