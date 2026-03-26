@@ -524,6 +524,25 @@
     section { padding: 4rem 5%; }
     .form-row { grid-template-columns: 1fr; }
   }
+
+  .nav-pages { display: flex; gap: 0.5rem; align-items: center; }
+  .nav-page-btn {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.4rem 0.9rem;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .nav-page-btn:hover { color: var(--gold-light); border-color: rgba(200,146,42,0.4); }
+  .nav-page-btn.active { background: var(--gold); color: var(--dark) !important; border-color: var(--gold); font-weight: 600; }
+  @media (max-width: 600px) {
+    .nav-page-btn span { display: none; }
+  }
+
 </style>
 </head>
 <body>
@@ -531,13 +550,19 @@
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="#home">A.L.M. Golden Cashews <span>Premium Sri Lankan Cashews</span></a>
-  <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">Our Process</a></li>
-    <li><a href="#products">Products</a></li>
-    <li><a href="#sales">Order Now</a></li>
-    <li><a href="#contact" class="nav-cta">Contact</a></li>
-  </ul>
+  <div style="display:flex;align-items:center;gap:1.5rem;">
+    <div class="nav-pages">
+      <a href="alm_golden_cashews.html" class="nav-page-btn active">🏠 <span>Home</span></a>
+      <a href="cashew-prices.html" class="nav-page-btn">💰 <span>Prices</span></a>
+      <a href="retail-packed-cashews.html" class="nav-page-btn">📦 <span>Retail Packs</span></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">Our Process</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#sales">Order Now</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
 <!-- HERO -->
