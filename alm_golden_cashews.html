@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A.L.M. Golden Cashews</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C8922A;
+    --gold-light: #E8B84B;
+    --gold-pale: #FDF3E0;
+    --dark: #1A1208;
+    --dark2: #2D2010;
+    --cream: #FAF3E8;
+    --text: #3D2B10;
+    --text-light: #7A6040;
+    --green: #3B5E2B;
+    --green-light: #5A8A45;
+    --white: #FFFEF9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(26,18,8,0.95);
+    backdrop-filter: blur(12px);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 70px;
+    border-bottom: 1px solid rgba(200,146,42,0.3);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold-light);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    line-height: 1.2;
+  }
+  .nav-logo span { display: block; font-size: 0.65rem; color: var(--gold); letter-spacing: 3px; font-family: 'DM Sans', sans-serif; font-weight: 400; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.88rem;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--dark) !important;
+    padding: 0.45rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 600 !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--dark) !important; }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    background: var(--dark);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 70px 5% 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(200,146,42,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 10% 80%, rgba(59,94,43,0.15) 0%, transparent 50%);
+  }
+  .hero-pattern {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%);
+    background-size: 20px 20px;
+  }
+  .hero-content { position: relative; z-index: 2; padding: 4rem 0; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(200,146,42,0.15);
+    border: 1px solid rgba(200,146,42,0.4);
+    color: var(--gold-light);
+    padding: 0.35rem 1rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero-title .gold { color: var(--gold-light); }
+  .hero-title .italic { font-style: italic; }
+  .hero-sub {
+    color: rgba(255,255,255,0.6);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 1.5rem 0 2.5rem;
+    max-width: 420px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-sinhala {
+    font-size: 0.95rem;
+    color: rgba(200,146,42,0.7);
+    margin-bottom: 1rem;
+    animation: fadeUp 0.6s 0.15s ease both;
+  }
+  .hero-btns {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--dark);
+    padding: 0.85rem 2rem;
+    border: none; border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: all 0.25s;
+    letter-spacing: 0.3px;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(200,146,42,0.35); }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; font-weight: 500;
+    cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: all 0.25s;
+  }
+  .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); }
+
+  .hero-visual {
+    position: relative; z-index: 2;
+    display: flex; justify-content: center; align-items: center;
+    animation: fadeIn 1s 0.4s ease both;
+  }
+  .hero-cashew-art {
+    width: 380px; height: 380px;
+    border-radius: 50%;
+    border: 4px solid rgba(200,146,42,0.4);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(200,146,42,0.25), 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .hero-cashew-art img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .hero-cashew-art::before {
+    content: '';
+    position: absolute; inset: -20px;
+    border-radius: 50%;
+    border: 1px dashed rgba(200,146,42,0.15);
+    animation: spin 30s linear infinite;
+  }
+  .stats-row {
+    display: flex; gap: 2.5rem; margin-top: 3rem;
+    animation: fadeUp 0.6s 0.35s ease both;
+  }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold-light); font-weight: 700; line-height: 1; }
+  .stat-lbl { font-size: 0.72rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-top: 0.25rem; }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 6rem 5%; }
+  .section-tag {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 550px;
+  }
+
+  /* ── ABOUT / PROCESS ── */
+  #about {
+    background: var(--white);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 3rem;
+  }
+  .process-steps { display: flex; flex-direction: column; gap: 1.5rem; }
+  .step {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+    padding: 1.25rem 1.5rem;
+    background: var(--cream);
+    border-radius: 10px;
+    border-left: 3px solid var(--gold);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .step:hover { transform: translateX(6px); box-shadow: -4px 4px 20px rgba(200,146,42,0.1); }
+  .step-icon { font-size: 2rem; min-width: 2.5rem; }
+  .step-title { font-weight: 600; color: var(--dark); margin-bottom: 0.2rem; }
+  .step-desc { font-size: 0.88rem; color: var(--text-light); line-height: 1.5; }
+  .step-sinhala { font-size: 0.8rem; color: var(--gold); margin-top: 0.2rem; }
+
+  .about-visual {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+    border-radius: 16px;
+    padding: 3rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-visual::before {
+    content: '🥜';
+    position: absolute;
+    font-size: 12rem;
+    right: -2rem; bottom: -2rem;
+    opacity: 0.07;
+  }
+  .about-visual h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+  .about-visual p { color: rgba(255,255,255,0.7); line-height: 1.7; font-size: 0.95rem; margin-bottom: 1rem; }
+  .quality-badges { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+  .qbadge {
+    background: rgba(200,146,42,0.15);
+    border: 1px solid rgba(200,146,42,0.3);
+    color: var(--gold-light);
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+
+  /* ── PRODUCTS ── */
+  #products { background: var(--cream); }
+  .products-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.75rem;
+  }
+  .product-card {
+    background: var(--white);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(200,146,42,0.12);
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: pointer;
+  }
+  .product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(200,146,42,0.15); }
+  .product-img {
+    height: 180px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 5rem;
+    position: relative;
+  }
+  .product-img.bg1 { background: linear-gradient(135deg, #FEF3C7, #FDE68A); }
+  .product-img.bg2 { background: linear-gradient(135deg, #ECFDF5, #A7F3D0); }
+  .product-img.bg3 { background: linear-gradient(135deg, #FFF7ED, #FED7AA); }
+  .product-img.bg4 { background: linear-gradient(135deg, #F0FDF4, #BBF7D0); }
+  .product-badge-new {
+    position: absolute; top: 12px; right: 12px;
+    background: var(--green);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 0.25rem 0.6rem;
+    border-radius: 10px;
+    text-transform: uppercase;
+  }
+  .product-body { padding: 1.25rem 1.5rem 1.5rem; }
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--dark);
+    margin-bottom: 0.2rem;
+  }
+  .product-sinhala { font-size: 0.8rem; color: var(--gold); margin-bottom: 0.6rem; }
+  .product-desc { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; margin-bottom: 1rem; }
+  .product-price {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .price { font-weight: 700; font-size: 1.05rem; color: var(--dark); }
+  .price span { font-size: 0.75rem; font-weight: 400; color: var(--text-light); }
+  .order-btn {
+    background: var(--gold);
+    color: var(--dark);
+    border: none; padding: 0.5rem 1.1rem;
+    border-radius: 6px;
+    font-size: 0.82rem; font-weight: 600;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .order-btn:hover { background: var(--gold-light); }
+
+  /* ── SALES ── */
+  #sales { background: var(--dark); color: white; }
+  .sales-title-area .section-title { color: var(--white); }
+  .sales-title-area .section-sub { color: rgba(255,255,255,0.6); }
+  .sales-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+
+  .order-form {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(200,146,42,0.2);
+    border-radius: 16px;
+    padding: 2.5rem;
+  }
+  .order-form h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold-light);
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+  }
+  .form-sub { color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-bottom: 2rem; }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-group label {
+    display: block;
+    font-size: 0.8rem; font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    color: white;
+    padding: 0.75rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .form-group select option { background: var(--dark2); color: white; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .submit-btn {
+    width: 100%;
+    background: var(--gold);
+    color: var(--dark);
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem; font-weight: 700;
+    cursor: pointer;
+    margin-top: 0.75rem;
+    transition: all 0.25s;
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  }
+  .submit-btn:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(200,146,42,0.4); }
+
+  .sales-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .info-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .info-icon { font-size: 2rem; min-width: 2.5rem; }
+  .info-card h4 { color: var(--gold-light); font-weight: 600; margin-bottom: 0.3rem; }
+  .info-card p { color: rgba(255,255,255,0.6); font-size: 0.88rem; line-height: 1.6; }
+  .whatsapp-btn {
+    display: flex; align-items: center; gap: 0.75rem;
+    background: #25D366;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.25s;
+    margin-top: 0.5rem;
+    justify-content: center;
+  }
+  .whatsapp-btn:hover { background: #20BC59; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37,211,102,0.3); }
+  .pricing-table {
+    background: rgba(200,146,42,0.08);
+    border: 1px solid rgba(200,146,42,0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .pricing-table h4 { color: var(--gold-light); margin-bottom: 1rem; font-family: 'Playfair Display', serif; }
+  .price-row { display: flex; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.9rem; }
+  .price-row:last-child { border-bottom: none; }
+  .price-row .pname { color: rgba(255,255,255,0.7); }
+  .price-row .pval { color: var(--gold-light); font-weight: 600; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--white); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+  .contact-card {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background: var(--cream);
+    border-radius: 14px;
+    border: 1px solid rgba(200,146,42,0.12);
+    transition: transform 0.2s;
+  }
+  .contact-card:hover { transform: translateY(-4px); }
+  .contact-card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .contact-card h4 { font-weight: 600; color: var(--dark); margin-bottom: 0.4rem; }
+  .contact-card p { color: var(--text-light); font-size: 0.9rem; line-height: 1.6; }
+  .contact-card a { color: var(--gold); text-decoration: none; font-weight: 500; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 2rem 5%;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(200,146,42,0.15);
+  }
+  footer .footer-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold-light);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 9999;
+    background: var(--green);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    display: flex; align-items: center; gap: 0.5rem;
+    transform: translateY(100px); opacity: 0;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    #home { grid-template-columns: 1fr; text-align: center; }
+    .hero-visual { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .sales-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .products-header { flex-direction: column; align-items: flex-start; }
+    .nav-links { display: none; }
+    .stats-row { justify-content: center; }
+    .hero-btns { justify-content: center; }
+  }
+
+  @media (max-width: 600px) {
+    section { padding: 4rem 5%; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#home">A.L.M. Golden Cashews <span>Premium Sri Lankan Cashews</span></a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">Our Process</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#sales">Order Now</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🏆 Sri Lanka's Finest Premium Cashews</div>
+    <div class="hero-sinhala" style="display:none">Grown, Processed &amp; Packed with Pride</div>
+    <h1 class="hero-title">
+      <span class="gold italic">Golden</span> Cashews<br>
+      From Our Farm<br>
+      <span style="font-size:0.6em; color:rgba(255,255,255,0.5);">to Your Table</span>
+    </h1>
+    <p class="hero-sub">
+      Machine-processed, hand-selected, and freshly packed premium cashews directly from our plantation in Sri Lanka.
+      <br><small style="color:rgba(200,146,42,0.7)">Machine processed · Hand cleaned · Freshly packed</small>
+    </p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-primary">🥜 View Products</a>
+      <a href="#sales" class="btn-outline">📦 Place an Order</a>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Pure Cashew</div></div>
+      <div class="stat"><div class="stat-num">Fresh</div><div class="stat-lbl">Every Batch</div></div>
+      <div class="stat"><div class="stat-num">Direct</div><div class="stat-lbl">Farm to You</div></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-cashew-art"><img src="data:image/jpeg;base64,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" alt="A.L.M. Golden Cashews - Fresh Cashew Kernels"></div>
+  </div>
+</section>
+
+<!-- ABOUT / PROCESS -->
+<section id="about">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;flex-wrap:wrap;">
+    <div>
+      <span class="section-tag">Our Process</span>
+      <h2 class="section-title">From Tree to Pack —<br><em style="font-style:italic">Pure Quality</em></h2>
+      <p class="section-sub">We grow, harvest, machine-cut, clean, and pack every cashew ourselves — no middlemen, no compromise on freshness.</p>
+    </div>
+    <div></div>
+  </div>
+  <div class="about-grid">
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-icon">🌳</div>
+        <div>
+          <div class="step-title">Gas Kaju (Raw Harvest)</div>
+          
+          <div class="step-desc">Fresh cashew nuts harvested directly from our trees at peak ripeness for maximum flavor and nutrition.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">⚙️</div>
+        <div>
+          <div class="step-title">Machine Processing</div>
+          
+          <div class="step-desc">Industrial-grade machines cleanly split and cut each cashew kernel, preserving shape and quality.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">✨</div>
+        <div>
+          <div class="step-title">Hand Cleaning & Sorting</div>
+          
+          <div class="step-desc">Every batch is hand-sorted to remove any imperfect pieces — only premium kernels make the cut.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">📦</div>
+        <div>
+          <div class="step-title">Fresh Packing & Delivery</div>
+          
+          <div class="step-desc">Hygienically packed in airtight packaging to lock in freshness, then delivered island-wide.</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <h3>Why Choose A.L.M. Golden Cashews?</h3>
+      <p>We don't just sell cashews — we grow them. Our family-run operation controls every step from plantation to packaging, guaranteeing freshness and quality that resellers cannot match.</p>
+      <p>From our plantation directly to you — freshness 100% guaranteed every single batch.</p>
+      <div class="quality-badges">
+        <span class="qbadge">✅ No Middlemen</span>
+        <span class="qbadge">🌿 Farm Fresh</span>
+        <span class="qbadge">⚙️ Machine Cut</span>
+        <span class="qbadge">🤲 Hand Sorted</span>
+        <span class="qbadge">📦 Hygienic Pack</span>
+        <span class="qbadge">🚚 Island Delivery</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="products-header">
+    <div>
+      <span class="section-tag">Products</span>
+      <h2 class="section-title">Our Cashew Range</h2>
+      <p class="section-sub">From raw gas kaju to retail-ready packed cashews — we have every grade.</p>
+    </div>
+    <a href="#sales" class="btn-primary">Order Any Product →</a>
+  </div>
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-img bg1">
+        🌳
+        <span class="product-badge-new">Raw</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Gas Kaju (Raw)</div>
+        <div class="product-sinhala">Raw · Unprocessed</div>
+        <div class="product-desc">We buy raw cashews directly from farmers! If you want to sell your gas kaju, call <strong style="color:var(--gold)">0742770633</strong> — we offer the best market prices. 🌳</div>
+        <div class="product-price">
+          <span class="price">Ask for Price <span>/ kg</span></span>
+          <a href="#sales" class="order-btn">Order</a>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img bg2">⚙️</div>
+      <div class="product-body">
+        <div class="product-name">Machine Cut Kernels</div>
+        <div class="product-sinhala">Whole / Halves / Pieces</div>
+        <div class="product-desc">Precision machine-cut cashew kernels, cleaned and sorted. Available as whole, halves, or pieces.</div>
+        <div class="product-price">
+          <span class="price">Ask for Price <span>/ kg</span></span>
+          <a href="#sales" class="order-btn">Order</a>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img bg3">
+        ✨
+        <span class="product-badge-new">Clean</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Cleaned & Sorted Kaju</div>
+        <div class="product-sinhala">Premium Grade · Hand Sorted</div>
+        <div class="product-desc">Hand-cleaned, quality-sorted premium cashew kernels ready for retail or commercial use.</div>
+        <div class="product-price">
+          <span class="price">Ask for Price <span>/ kg</span></span>
+          <a href="#sales" class="order-btn">Order</a>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img bg4">
+        📦
+        <span class="product-badge-new">Retail</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Retail Packed Cashews</div>
+        <div class="product-sinhala">Retail Ready · Hygienic Packaging</div>
+        <div class="product-desc">Hygienically packed in 250g, 500g & 1kg retail bags. Ready-to-sell for shops and supermarkets.</div>
+        <div class="product-price">
+          <span class="price">Ask for Price <span>/ pack</span></span>
+          <a href="#sales" class="order-btn">Order</a>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img bg1" style="background: linear-gradient(135deg,#FEF9C3,#FDE047)">🏭</div>
+      <div class="product-body">
+        <div class="product-name">Bulk Wholesale</div>
+        <div class="product-sinhala">For Traders &amp; Exporters</div>
+        <div class="product-desc">Large quantity orders for traders, exporters, and food manufacturers. Special pricing available.</div>
+        <div class="product-price">
+          <span class="price">Negotiable <span>/ bulk</span></span>
+          <a href="#sales" class="order-btn">Inquire</a>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" style="background:var(--dark);border-color:rgba(200,146,42,0.3)">
+      <div class="product-img" style="background:linear-gradient(135deg,#1a1208,#2d2010);font-size:3.5rem;flex-direction:column;gap:0.5rem">
+        🤝
+        <span style="font-size:1rem;color:var(--gold-light);font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:600;">Custom Orders</span>
+      </div>
+      <div class="product-body" style="background:var(--dark)">
+        <div class="product-name" style="color:var(--gold-light)">Custom / Special Orders</div>
+        <div class="product-sinhala" style="color:rgba(200,146,42,0.7)">Any Grade · Any Quantity</div>
+        <div class="product-desc" style="color:rgba(255,255,255,0.5)">Need a specific grade, quantity, or packaging? Contact us — we'll work something out just for you.</div>
+        <div class="product-price">
+          <span class="price" style="color:white">Let's Talk</span>
+          <a href="#contact" class="order-btn">Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SALES / ORDER -->
+<section id="sales">
+  <div class="sales-title-area">
+    <span class="section-tag" style="color:var(--gold-light)">Order Now</span>
+    <h2 class="section-title">Place Your Order</h2>
+    <p class="section-sub">Fill the form below or WhatsApp us directly. We deliver island-wide across Sri Lanka!</p>
+  </div>
+  <div class="sales-grid">
+    <div class="order-form">
+      <h3>📋 Order Form</h3>
+      <div class="form-sub">Fill this out and we'll confirm your order via WhatsApp or phone call.</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" id="fname" placeholder="Full name">
+        </div>
+        <div class="form-group">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" id="fphone" placeholder="07X XXX XXXX">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Product</label>
+        <select id="fproduct">
+          <option value="">-- Select product --</option>
+          <option>Gas Kaju (Raw Cashews)</option>
+          <option>Machine Cut Kernels</option>
+          <option>Cleaned & Sorted Premium Kaju</option>
+          <option>Retail Packed Cashews (250g)</option>
+          <option>Retail Packed Cashews (500g)</option>
+          <option>Retail Packed Cashews (1kg)</option>
+          <option>Bulk Wholesale Order</option>
+          <option>Custom Order</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Quantity</label>
+          <input type="text" id="fqty" placeholder="e.g. 5 kg, 10 packs">
+        </div>
+        <div class="form-group">
+          <label>Delivery Area</label>
+          <input type="text" id="farea" placeholder="City / Town">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Additional Notes</label>
+        <textarea id="fnotes" rows="3" placeholder="Any special requirements or notes?"></textarea>
+      </div>
+      <button class="submit-btn" onclick="submitOrder()">
+        📲 Send Order via WhatsApp
+      </button>
+    </div>
+
+    <div class="sales-info">
+      <a href="https://wa.me/94742770633" target="_blank" class="whatsapp-btn" style="text-decoration:none">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.934 1.397 5.61L0 24l6.545-1.378A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.652-.51-5.17-1.4l-.37-.22-3.884.818.824-3.785-.241-.389A9.929 9.929 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Order Directly via WhatsApp
+      </a>
+
+      <div class="pricing-table">
+        <h4>Price Guide</h4>
+        <div class="price-row"><span class="pname">Gas Kaju (Raw)</span><span class="pval">Call for Price</span></div>
+        <div class="price-row"><span class="pname">Machine Cut Kernels</span><span class="pval">Call for Price</span></div>
+        <div class="price-row"><span class="pname">Cleaned Premium</span><span class="pval">Call for Price</span></div>
+        <div class="price-row"><span class="pname">Retail Pack 250g</span><span class="pval">Call for Price</span></div>
+        <div class="price-row"><span class="pname">Retail Pack 500g</span><span class="pval">Call for Price</span></div>
+        <div class="price-row"><span class="pname">Retail Pack 1kg</span><span class="pval">Call for Price</span></div>
+        <div class="price-row"><span class="pname">Bulk Wholesale</span><span class="pval">Negotiable</span></div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">🚚</div>
+        <div>
+          <h4>Island-wide Delivery</h4>
+          <p>We deliver across Sri Lanka. Minimum order quantities apply for certain products. Contact us for delivery charges to your area. · We deliver across Sri Lanka. Minimum order quantities apply for certain products.</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">⏱️</div>
+        <div>
+          <h4>Fast Processing</h4>
+          <p>Orders are processed fresh. We confirm within a few hours and dispatch promptly. Bulk orders may need 1–2 days preparation. · Orders confirmed within a few hours. Bulk orders may need 1–2 days preparation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <span class="section-tag">Contact Us</span>
+  <h2 class="section-title">Get in Touch</h2>
+  <p class="section-sub">We're happy to answer any questions about our products, pricing, or delivery. Call or WhatsApp us anytime!</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="icon">📞</div>
+      <h4>Call / WhatsApp</h4>
+      <p><a href="tel:+94742770633">+94 74 277 0633</a></p>
+      <p style="margin-top:0.3rem;font-size:0.8rem;color:#aaa">Mon – Sat · 8am to 6pm</p>
+    </div>
+    <div class="contact-card">
+      <div class="icon">📍</div>
+      <h4>Location</h4>
+      <p>Diulwewa, Anamaduwa<br>North Western Province, Sri Lanka<br><span style="font-size:0.8rem;color:#aaa">Island-wide delivery available</span></p>
+    </div>
+    <div class="contact-card">
+      <div class="icon">📱</div>
+      <h4>Social Media</h4>
+      <p>Follow us for<br>updates & offers</p>
+      <p style="margin-top:0.5rem"><a href="#">Facebook · Instagram</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">A.L.M. Golden Cashews</div>
+  <p>Premium Sri Lankan Cashews — Farm Fresh, Machine Processed</p>
+  <p style="margin-top:0.5rem;font-size:0.78rem">© 2025 A.L.M. Golden Cashews · All rights reserved</p>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✅ Order sent via WhatsApp!</div>
+
+<script>
+  function submitOrder() {
+    const name = document.getElementById('fname').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    const product = document.getElementById('fproduct').value;
+    const qty = document.getElementById('fqty').value.trim();
+    const area = document.getElementById('farea').value.trim();
+    const notes = document.getElementById('fnotes').value.trim();
+
+    if (!name || !phone || !product || !qty) {
+      alert('Please fill in your Name, Phone, Product, and Quantity before submitting.');
+      return;
+    }
+
+    const msg = `Hello A.L.M. Golden Cashews! 🥜
+
+*New Order Request*
+--------------------
+*Name:* ${name}
+*Phone:* ${phone}
+*Product:* ${product}
+*Quantity:* ${qty}
+*Delivery Area:* ${area || 'To be confirmed'}
+${notes ? `*Notes:* ${notes}` : ''}
+
+Please confirm availability and pricing. Thank you!`;
+
+    const waUrl = `https://wa.me/94742770633?text=${encodeURIComponent(msg)}`;
+    window.open(waUrl, '_blank');
+
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+  }
+</script>
+
+</body>
+</html>
