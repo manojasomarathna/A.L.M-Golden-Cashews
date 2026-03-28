@@ -932,13 +932,13 @@
 
       <div class="pricing-table">
         <h4>Price Guide</h4>
-        <div class="price-row"><span class="pname">Gas Kaju (Raw)</span><span class="pval">Call for Price</span></div>
-        <div class="price-row"><span class="pname">Machine Cut Kernels</span><span class="pval">Call for Price</span></div>
-        <div class="price-row"><span class="pname">Cleaned Premium</span><span class="pval">Call for Price</span></div>
-        <div class="price-row"><span class="pname">Retail Pack 250g</span><span class="pval">Call for Price</span></div>
-        <div class="price-row"><span class="pname">Retail Pack 500g</span><span class="pval">Call for Price</span></div>
-        <div class="price-row"><span class="pname">Retail Pack 1kg</span><span class="pval">Call for Price</span></div>
-        <div class="price-row"><span class="pname">Bulk Wholesale</span><span class="pval">Negotiable</span></div>
+        <div class="price-row"><span class="pname">Gas Kaju (Raw)</span><span class="pval" id="pval-gas">Loading...</span></div>
+        <div class="price-row"><span class="pname">Machine Cut Kernels</span><span class="pval" id="pval-machine">Loading...</span></div>
+        <div class="price-row"><span class="pname">Cleaned Premium</span><span class="pval" id="pval-cleaned">Loading...</span></div>
+        <div class="price-row"><span class="pname">Retail Pack 250g</span><span class="pval" id="pval-250g">Loading...</span></div>
+        <div class="price-row"><span class="pname">Retail Pack 500g</span><span class="pval" id="pval-500g">Loading...</span></div>
+        <div class="price-row"><span class="pname">Retail Pack 1kg</span><span class="pval" id="pval-1kg">Loading...</span></div>
+        <div class="price-row"><span class="pname">Bulk Wholesale</span><span class="pval" id="pval-bulk">Loading...</span></div>
       </div>
 
       <div class="info-card">
@@ -1050,6 +1050,31 @@
 <div class="toast" id="toast">✅ Order sent via WhatsApp!</div>
 
 <script>
+  const PRICES_API = 'https://script.google.com/macros/s/AKfycbyQno1IOuuVl8tOUMg7yG9YiGsIh0H9VTY5roryWmzbocYC2lz2rTYj9pJkyYyTOhWd/exec';
+
+  function loadPrices() {
+    fetch(PRICES_API)
+      .then(r => r.json())
+      .then(prices => {
+        const map = {
+          'pval-gas':     prices['Gas Kaju (Raw)'],
+          'pval-machine': prices['Machine Cut Kernels'],
+          'pval-cleaned': prices['Cleaned Premium'],
+          'pval-250g':    prices['Retail 250g'],
+          'pval-500g':    prices['Retail 500g'],
+          'pval-1kg':     prices['Retail 1kg'],
+          'pval-bulk':    prices['Bulk Wholesale']
+        };
+        Object.entries(map).forEach(([id, val]) => {
+          const el = document.getElementById(id);
+          if (el && val) el.textContent = val;
+        });
+      })
+      .catch(() => {});
+  }
+
+  window.addEventListener('load', loadPrices);
+
   function submitOrder() {
     const name = document.getElementById('fname').value.trim();
     const phone = document.getElementById('fphone').value.trim();
