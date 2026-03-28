@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roasted Cashews | Plain, Salted & Devilled | A.L.M. Golden Cashews</title>
+<meta name="description" content="Plain roasted, salted and devilled cashews from A.L.M. Golden Cashews. Rs. 3,450–7,600. Call 0742770633.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C8922A; --gold-light: #E8B84B;
+    --dark: #1A1208; --dark2: #2D2010;
+    --cream: #FAF3E8; --text: #3D2B10;
+    --text-light: #7A6040; --green: #3B5E2B; --white: #FFFEF9;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); }
+
+  nav {
+    background: rgba(26,18,8,0.97); padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 65px; border-bottom: 1px solid rgba(200,146,42,0.3);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; color: var(--gold-light); font-size: 1.2rem; font-weight: 700; text-decoration: none; line-height: 1.2; }
+  .nav-logo span { display: block; font-size: 0.6rem; color: var(--gold); letter-spacing: 3px; font-family: 'DM Sans', sans-serif; text-transform: uppercase; }
+  .nav-pages { display: flex; gap: 0.5rem; align-items: center; }
+  .nav-page-btn { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.85rem; font-weight: 500; padding: 0.4rem 0.9rem; border-radius: 5px; border: 1px solid transparent; transition: all 0.2s; white-space: nowrap; }
+  .nav-page-btn:hover { color: var(--gold-light); border-color: rgba(200,146,42,0.4); }
+  .nav-page-btn.active { background: var(--gold); color: var(--dark) !important; border-color: var(--gold); font-weight: 600; }
+  @media (max-width: 600px) { .nav-page-btn span { display: none; } }
+
+  /* HERO */
+  .hero { background: var(--dark); padding: 5rem 5% 4rem; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(200,146,42,0.13) 0%, transparent 70%); }
+  .hero-badge { display: inline-block; background: rgba(200,146,42,0.15); border: 1px solid rgba(200,146,42,0.4); color: var(--gold-light); padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; position: relative; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); color: white; line-height: 1.15; margin-bottom: 1rem; position: relative; }
+  .hero h1 span { color: var(--gold-light); font-style: italic; }
+  .hero p { color: rgba(255,255,255,0.6); font-size: 1rem; max-width: 500px; margin: 0 auto; line-height: 1.7; position: relative; }
+
+  /* SECTION */
+  .section { padding: 5rem 5%; }
+  .section-label { display: inline-block; color: var(--gold); font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; margin-bottom: 0.75rem; }
+  .section h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--dark); margin-bottom: 0.75rem; }
+  .section p.sub { color: var(--text-light); font-size: 1rem; line-height: 1.7; max-width: 560px; margin-bottom: 3rem; }
+
+  /* ROASTED CARDS */
+  .roasted-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+  .roasted-card { background: var(--white); border-radius: 16px; overflow: hidden; border: 1px solid rgba(200,146,42,0.15); transition: transform 0.25s, box-shadow 0.25s; }
+  .roasted-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(200,146,42,0.15); }
+  .roasted-img { width: 100%; height: 220px; object-fit: cover; display: block; }
+  .roasted-body { padding: 1.5rem; }
+  .roasted-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(200,146,42,0.1); border: 1px solid rgba(200,146,42,0.25); color: var(--gold); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.75rem; }
+  .roasted-card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--dark); margin-bottom: 0.5rem; }
+  .roasted-desc { font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin-bottom: 1.25rem; }
+
+  /* STEPS */
+  .steps-section { margin-bottom: 1.25rem; }
+  .steps-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-bottom: 0.5rem; }
+  .step-item { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.83rem; color: var(--text); padding: 0.3rem 0; }
+  .step-item::before { content: '→'; color: var(--gold); font-weight: 700; min-width: 16px; }
+  .ing-wrap { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.4rem; }
+  .ing-tag { background: var(--cream); border: 1px solid rgba(200,146,42,0.2); border-radius: 20px; padding: 0.2rem 0.65rem; font-size: 0.75rem; color: var(--text); }
+  .tip-box { background: rgba(59,94,43,0.08); border: 1px solid rgba(59,94,43,0.2); border-radius: 8px; padding: 0.6rem 0.9rem; font-size: 0.8rem; color: var(--green); margin: 0.75rem 0; }
+  .done-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(59,94,43,0.1); border: 1px solid rgba(59,94,43,0.3); color: var(--green); border-radius: 20px; padding: 0.3rem 0.8rem; font-size: 0.78rem; font-weight: 600; margin: 0.5rem 0 1rem; }
+
+  /* PRICE BOX */
+  .price-box { background: linear-gradient(135deg, var(--dark), var(--dark2)); border-radius: 10px; padding: 1rem 1.25rem; }
+  .price-box .plabel { font-size: 0.7rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+  .price-row-item { display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .price-row-item:last-child { border-bottom: none; }
+  .price-row-item .psize { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+  .price-row-item .pval { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold-light); font-weight: 700; }
+
+  /* ORDER BTN */
+  .order-btn { display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; background: var(--gold); color: var(--dark); padding: 0.85rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.25s; margin-top: 1rem; }
+  .order-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  /* WA FLOAT */
+  .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9998; background: #25D366; color: white; width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.5); text-decoration: none; transition: all 0.3s; animation: waPulse 2s infinite; }
+  .wa-float:hover { transform: scale(1.12); }
+  @keyframes waPulse { 0% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); } 50% { box-shadow: 0 4px 30px rgba(37,211,102,0.8); } 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); } }
+
+  footer { background: var(--dark); color: rgba(255,255,255,0.5); text-align: center; padding: 2rem 5%; font-size: 0.85rem; border-top: 1px solid rgba(200,146,42,0.15); }
+  footer .fl { font-family: 'Playfair Display', serif; color: var(--gold-light); font-size: 1.2rem; margin-bottom: 0.4rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="alm_golden_cashews.html">A.L.M. Golden Cashews <span>Premium Sri Lankan Cashews</span></a>
+  <div class="nav-pages">
+    <a href="alm_golden_cashews.html" class="nav-page-btn">🏠 <span>Home</span></a>
+    <a href="cashew-prices.html" class="nav-page-btn">💰 <span>Prices</span></a>
+    <a href="retail-packed-cashews.html" class="nav-page-btn">📦 <span>Retail Packs</span></a>
+    <a href="suppliers.html" class="nav-page-btn">🌳 <span>Suppliers</span></a>
+    <a href="cashew-guide.html" class="nav-page-btn">📖 <span>Guide</span></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🔥 Roasted Cashews</div>
+  <h1>Plain, Salted &<br><span>Devilled Cashews</span></h1>
+  <p>Ready-to-eat roasted cashews — 3 delicious varieties. Perfect for snacking, gifting, and retail.</p>
+</div>
+
+<!-- ROASTED TYPES -->
+<div class="section">
+  <span class="section-label">3 Varieties</span>
+  <h2>Choose Your Flavour</h2>
+  <p class="sub">All made from premium cleaned cashew kernels — roasted fresh to order.</p>
+
+  <div class="roasted-grid">
+
+    <!-- PLAIN ROASTED -->
+    <div class="roasted-card">
+      <img src="natural-raw-dried-roasted-cashew-nuts-247.jpg" alt="Plain Roasted Cashews" class="roasted-img">
+      <div class="roasted-body">
+        <div class="roasted-badge">🌰 1️⃣ Basic</div>
+        <h3>Plain Roasted Cashew</h3>
+        <p class="roasted-desc">Natural cashew flavour — no additives, no salt. Pure roasted goodness. Perfect for health-conscious snacking.</p>
+        <div class="steps-section">
+          <div class="steps-label">🛠 How It's Made</div>
+          <div class="step-item">Raw kernel (shell removed) ගන්න</div>
+          <div class="step-item">Pan / oven එකකට දාන්න</div>
+          <div class="step-item">Low heat එකේ 5–10 min roast කරන්න</div>
+          <div class="step-item">Golden color වෙනකන් roast කරන්න</div>
+        </div>
+        <div class="done-badge">✅ Done → Plain roasted kaju</div>
+        <div class="price-box">
+          <div class="plabel">Price</div>
+          <div class="price-row-item"><span class="psize">500g Pack</span><span class="pval">Rs. 3,450 – 3,760</span></div>
+          <div class="price-row-item"><span class="psize">1kg Pack</span><span class="pval">Rs. 6,500 – 7,600</span></div>
+        </div>
+        <a href="https://wa.me/94742770633?text=Hello%20A.L.M.%20Golden%20Cashews!%20I%20want%20to%20order%20Plain%20Roasted%20Cashews%20%F0%9F%8C%B0" target="_blank" class="order-btn">📲 Order via WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- SALTED -->
+    <div class="roasted-card">
+      <img src="bowl-homemade-roasted-salted-cashews_972075-30947.avif" alt="Salted Cashews" class="roasted-img">
+      <div class="roasted-body">
+        <div class="roasted-badge">🧂 2️⃣ Classic</div>
+        <h3>Salted Cashew</h3>
+        <p class="roasted-desc">Lightly salted roasted cashews — the classic snack. Perfect balance of salt and natural cashew flavour.</p>
+        <div class="steps-section">
+          <div class="steps-label">🛠 How It's Made</div>
+          <div class="step-item">Roasted kaju take කරන්න</div>
+          <div class="step-item">Little oil + fine salt mix කරන්න</div>
+          <div class="step-item">Lightly heat කරලා mix කරන්න</div>
+        </div>
+        <div class="tip-box">💡 Fine salt use කරන්න · Too much salt දාන්න එපා</div>
+        <div class="done-badge">✅ Done → Salted kaju</div>
+        <div class="price-box">
+          <div class="plabel">Price</div>
+          <div class="price-row-item"><span class="psize">500g Pack</span><span class="pval">Rs. 3,450 – 3,760</span></div>
+          <div class="price-row-item"><span class="psize">1kg Pack</span><span class="pval">Rs. 6,500 – 7,600</span></div>
+        </div>
+        <a href="https://wa.me/94742770633?text=Hello%20A.L.M.%20Golden%20Cashews!%20I%20want%20to%20order%20Salted%20Cashews%20%F0%9F%A7%82" target="_blank" class="order-btn">📲 Order via WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- DEVILLED -->
+    <div class="roasted-card">
+      <img src="BA_0824_SAM_FORE_TEST_107.webp" alt="Devilled Spicy Cashews" class="roasted-img">
+      <div class="roasted-body">
+        <div class="roasted-badge">🌶️ 3️⃣ 🔥 Popular</div>
+        <h3>Devilled / Spicy Cashew</h3>
+        <p class="roasted-desc">Sri Lankan style devilled cashews — spicy, aromatic, and absolutely addictive. Our most popular variety!</p>
+        <div class="steps-section">
+          <div class="steps-label">🛠 Ingredients</div>
+          <div class="ing-wrap">
+            <span class="ing-tag">Oil</span>
+            <span class="ing-tag">🌶 Chili powder</span>
+            <span class="ing-tag">Salt</span>
+            <span class="ing-tag">Pepper</span>
+            <span class="ing-tag">Curry leaves</span>
+            <span class="ing-tag">Garlic (optional)</span>
+          </div>
+        </div>
+        <div class="steps-section" style="margin-top:0.75rem;">
+          <div class="steps-label">🛠 Steps</div>
+          <div class="step-item">Pan එකට oil දාන්න</div>
+          <div class="step-item">Curry leaves + garlic fry කරන්න</div>
+          <div class="step-item">Chili + salt + pepper add කරන්න</div>
+          <div class="step-item">Roasted kaju දාන්න</div>
+          <div class="step-item">Good mix කරලා 2–3 min cook කරන්න</div>
+        </div>
+        <div class="done-badge">✅ Done → Devilled kaju 🔥</div>
+        <div class="price-box">
+          <div class="plabel">Price</div>
+          <div class="price-row-item"><span class="psize">500g Pack</span><span class="pval">Rs. 3,450 – 3,760</span></div>
+          <div class="price-row-item"><span class="psize">1kg Pack</span><span class="pval">Rs. 6,500 – 7,600</span></div>
+        </div>
+        <a href="https://wa.me/94742770633?text=Hello%20A.L.M.%20Golden%20Cashews!%20I%20want%20to%20order%20Devilled%20Cashews%20%F0%9F%8C%B6%EF%B8%8F" target="_blank" class="order-btn">📲 Order via WhatsApp</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="fl">A.L.M. Golden Cashews</div>
+  <p>Premium Sri Lankan Cashews · Diulwewa, Anamaduwa</p>
+  <p style="margin-top:0.4rem;font-size:0.78rem;">© 2025 A.L.M. Golden Cashews · All rights reserved</p>
+</footer>
+
+<a href="https://wa.me/94742770633" target="_blank" class="wa-float" title="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.934 1.397 5.61L0 24l6.545-1.378A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.652-.51-5.17-1.4l-.37-.22-3.884.818.824-3.785-.241-.389A9.929 9.929 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+</body>
+</html>
