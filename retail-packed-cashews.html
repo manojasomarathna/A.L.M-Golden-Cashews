@@ -565,17 +565,42 @@
   function submitOrder() {
     const name = document.getElementById('fname').value.trim();
     const phone = document.getElementById('fphone').value.trim();
-    const pack = document.getElementById('fpack').value;
+    const product = document.getElementById('fpack').value;
     const qty = document.getElementById('fqty').value.trim();
     const area = document.getElementById('farea').value.trim();
     const notes = document.getElementById('fnotes').value.trim();
 
-    if (!name || !phone || !pack || !qty) {
-      alert('Please fill in Name, Phone, Pack Size, and Quantity!');
+    if (!name || !phone || !product || !qty) {
+      alert('Please fill in Name, Phone, Product, and Quantity!');
       return;
     }
 
-    const msg = `Hello A.L.M. Golden Cashews! 📦\n\n*Retail Pack Order Request*\n--------------------\n*Name:* ${name}\n*Phone:* ${phone}\n*Pack Size:* ${pack}\n*Quantity:* ${qty}\n*Delivery Area:* ${area || 'To be confirmed'}\n${notes ? `*Notes:* ${notes}` : ''}\n\nPlease confirm availability and pricing. Thank you!`;
+    // Save to Google Sheets
+    fetch('https://script.google.com/macros/s/AKfycbyE19D6DyU4zvITfYx-1Fsl9V0J6tXcI_VuHzMDLjQ7sxfmDsWnmStwyVzJiH1BYBbfOg/exec', {
+      method: 'POST',
+      body: JSON.stringify({
+        name: name,
+        phone: phone,
+        product: product,
+        quantity: qty,
+        area: area || 'Not specified',
+        notes: notes || ''
+      })
+    }).catch(() => {});
+
+    // Send WhatsApp message
+    const msg = `Hello A.L.M. Golden Cashews! 🥜
+
+*New Order Request*
+--------------------
+*Name:* ${name}
+*Phone:* ${phone}
+*Product:* ${product}
+*Quantity:* ${qty}
+*Delivery Area:* ${area || 'To be confirmed'}
+${notes ? `*Notes:* ${notes}` : ''}
+
+Please confirm availability and pricing. Thank you!`;
 
     window.open(`https://wa.me/94742770633?text=${encodeURIComponent(msg)}`, '_blank');
 

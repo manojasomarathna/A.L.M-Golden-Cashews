@@ -1054,10 +1054,24 @@
     const notes = document.getElementById('fnotes').value.trim();
 
     if (!name || !phone || !product || !qty) {
-      alert('Please fill in your Name, Phone, Product, and Quantity before submitting.');
+      alert('Please fill in Name, Phone, Product, and Quantity!');
       return;
     }
 
+    // Save to Google Sheets
+    fetch('https://script.google.com/macros/s/AKfycbyE19D6DyU4zvITfYx-1Fsl9V0J6tXcI_VuHzMDLjQ7sxfmDsWnmStwyVzJiH1BYBbfOg/exec', {
+      method: 'POST',
+      body: JSON.stringify({
+        name: name,
+        phone: phone,
+        product: product,
+        quantity: qty,
+        area: area || 'Not specified',
+        notes: notes || ''
+      })
+    }).catch(() => {});
+
+    // Send WhatsApp message
     const msg = `Hello A.L.M. Golden Cashews! 🥜
 
 *New Order Request*
@@ -1071,8 +1085,7 @@ ${notes ? `*Notes:* ${notes}` : ''}
 
 Please confirm availability and pricing. Thank you!`;
 
-    const waUrl = `https://wa.me/94742770633?text=${encodeURIComponent(msg)}`;
-    window.open(waUrl, '_blank');
+    window.open(`https://wa.me/94742770633?text=${encodeURIComponent(msg)}`, '_blank');
 
     const toast = document.getElementById('toast');
     toast.classList.add('show');
