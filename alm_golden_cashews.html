@@ -1057,12 +1057,12 @@
       .then(r => r.json())
       .then(prices => {
         const map = {
-          'pval-gas':     prices['Gas Kaju (Raw)'],
+          'pval-gas':     prices['Gas kaju (Raw)'],
           'pval-machine': prices['Machine Cut Kernels'],
-          'pval-cleaned': prices['Cleaned Premium'],
-          'pval-250g':    prices['Retail 250g'],
-          'pval-500g':    prices['Retail 500g'],
-          'pval-1kg':     prices['Retail 1kg'],
+          'pval-cleaned': prices['Cleaned & Sorted Premium'],
+          'pval-250g':    prices['Retail Pack 250g'],
+          'pval-500g':    prices['Retail Pack 500g'],
+          'pval-1kg':     prices['Retail Pack 1kg'],
           'pval-bulk':    prices['Bulk Wholesale']
         };
         Object.entries(map).forEach(([id, val]) => {
