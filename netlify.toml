@@ -3,8 +3,3 @@
   to = "https://a-l-m-golden-cashews.pages.dev/:splat"
   status = 301
   force = true
-
-[[redirects]]
-  from = "/"
-  to = "/alm_golden_cashews.html"
-  status = 200
