@@ -93,43 +93,43 @@
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    background: rgba(26,18,8,0.95);
-    backdrop-filter: blur(12px);
-    padding: 0 5%;
+    background: rgba(26,18,8,0.97);
+    backdrop-filter: blur(16px);
+    padding: 0 4%;
     display: flex; align-items: center; justify-content: space-between;
-    height: 70px;
-    border-bottom: 1px solid rgba(200,146,42,0.3);
+    height: 64px;
+    border-bottom: 1px solid rgba(200,146,42,0.25);
   }
   .nav-logo {
     font-family: 'Playfair Display', serif;
     color: var(--gold-light);
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     font-weight: 700;
-    letter-spacing: 0.5px;
     text-decoration: none;
     line-height: 1.2;
+    white-space: nowrap;
   }
-  .nav-logo span { display: block; font-size: 0.65rem; color: var(--gold); letter-spacing: 3px; font-family: 'DM Sans', sans-serif; font-weight: 400; text-transform: uppercase; }
-  .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+  .nav-logo span { display: block; font-size: 0.58rem; color: rgba(200,146,42,0.7); letter-spacing: 2.5px; font-family: 'DM Sans', sans-serif; font-weight: 400; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 0.25rem; list-style: none; align-items: center; }
   .nav-links a {
-    color: rgba(255,255,255,0.75);
+    color: rgba(255,255,255,0.65);
     text-decoration: none;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
+    font-size: 0.82rem;
     font-weight: 500;
-    padding: 0.4rem 0;
-    border-bottom: 2px solid transparent;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
     transition: all 0.2s;
+    white-space: nowrap;
   }
-  .nav-links a:hover { color: var(--gold-light); border-bottom-color: var(--gold-light); }
+  .nav-links a:hover { color: var(--gold-light); background: rgba(200,146,42,0.1); }
   .nav-cta {
-    background: var(--gold);
+    background: var(--gold) !important;
     color: var(--dark) !important;
-    padding: 0.45rem 1.2rem;
-    border-radius: 4px;
-    font-weight: 600 !important;
+    padding: 0.45rem 1.1rem !important;
+    border-radius: 6px;
+    font-weight: 700 !important;
   }
-  .nav-cta:hover { background: var(--gold-light) !important; color: var(--dark) !important; }
+  .nav-cta:hover { background: var(--gold-light) !important; }
 
   /* ── HERO ── */
   #home {
@@ -586,22 +586,28 @@
     .form-row { grid-template-columns: 1fr; }
   }
 
-  .nav-pages { display: flex; gap: 0.5rem; align-items: center; }
+  .nav-pages { display: flex; gap: 0.2rem; align-items: center; }
   .nav-page-btn {
-    color: rgba(255,255,255,0.75);
+    color: rgba(255,255,255,0.65);
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 500;
-    padding: 0.4rem 0.9rem;
-    border-radius: 5px;
+    padding: 0.38rem 0.7rem;
+    border-radius: 6px;
     border: 1px solid transparent;
     transition: all 0.2s;
     white-space: nowrap;
+    display: flex; align-items: center; gap: 0.3rem;
   }
-  .nav-page-btn:hover { color: var(--gold-light); border-color: rgba(200,146,42,0.4); }
-  .nav-page-btn.active { background: var(--gold); color: var(--dark) !important; border-color: var(--gold); font-weight: 600; }
-  @media (max-width: 600px) {
+  .nav-page-btn:hover { color: var(--gold-light); background: rgba(200,146,42,0.1); border-color: rgba(200,146,42,0.2); }
+  .nav-page-btn.active { background: rgba(200,146,42,0.15); color: var(--gold-light) !important; border-color: rgba(200,146,42,0.4); font-weight: 600; }
+  .nav-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.1); margin: 0 0.4rem; }
+  @media (max-width: 768px) {
     .nav-page-btn span { display: none; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 480px) {
+    .nav-logo span { display: none; }
   }
 
 
@@ -655,7 +661,7 @@
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="#home">A.L.M. Golden Cashews <span>Premium Sri Lankan Cashews</span></a>
-  <div style="display:flex;align-items:center;gap:1.5rem;">
+  <div style="display:flex;align-items:center;gap:0.5rem;">
     <div class="nav-pages">
       <a href="alm_golden_cashews.html" class="nav-page-btn active">🏠 <span>Home</span></a>
       <a href="cashew-prices.html" class="nav-page-btn">💰 <span>Prices</span></a>
@@ -663,11 +669,12 @@
       <a href="suppliers.html" class="nav-page-btn">🌳 <span>Suppliers</span></a>
       <a href="cashew-guide.html" class="nav-page-btn">📖 <span>Guide</span></a>
     </div>
+    <div class="nav-divider"></div>
     <ul class="nav-links">
       <li><a href="#about">Our Process</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#sales">Order Now</a></li>
-      <li><a href="#contact" class="nav-cta">Contact</a></li>
+      <li><a href="#contact" class="nav-cta">📞 Contact</a></li>
     </ul>
   </div>
 </nav>
